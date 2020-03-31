@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Asistente en Carretera</title>
+    <script>
+        function check() {
+            let dist = document.getElementById("dist");
+            let temps = document.getElementById("temps");
+            let consom = document.getElementById("consom");
+            return !(isNaN(dist.value) || isNaN(temps.value) || isNaN(consom.value));
+        }
+    </script>
+</head>
+<body>
+    <header style="text-align: center">
+        <h1>Asistente en carretera</h1>
+    </header>
+    <section style="text-align: center">
+        <form id="formulaire" action="/calculatteur" method="post" onsubmit="return check()">
+            <label>Distancia (Km):</label>
+            <input type="text" id="dist" name="dist">
+            <label>Tiempo (H):</label>
+            <input type="text" id="temps" name="temps">
+            <label>Consumo Medio  (L/100 Km):</label>
+            <input type="text" id="consom" name="consom">
+            <br>
+            <input type="submit" value="Calcular" style="margin-top: 20px">
+        </form>
+    </section>
+</body>
+</html>
