@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Generador de Facturas Online</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <script>
+        function check() {
+            let cif = document.getElementById("cif");
+            let nom = document.getElementById("nom");
+            let dir = document.getElementById("dir");
+            let poblation = document.getElementById("poblation");
+            let province = document.getElementById("province");
+            let cpostal = document.getElementById("cpostal");
+            let pays = document.getElementById("pays");
+            let contact = document.getElementById("contact");
+            let email = document.getElementById("email");
+            let telephone = document.getElementById("telephone");
+            let datem = false;
+            if(cif.value != "" && nom.value != "" && dir.value != "" && poblation.value != "" && province.value != "" && cpostal.value != "" && pays.value != "" && contact.value != "" && email.value != "" && telephone.value != ""){
+                datem = true;
+            }
+            let cifc = document.getElementById("cifc");
+            let nomc = document.getElementById("nomc");
+            let dirc = document.getElementById("dirc");
+            let poblationc = document.getElementById("poblationc");
+            let provincec = document.getElementById("provincec");
+            let cpostalc = document.getElementById("cpostalc");
+            let paysc = document.getElementById("paysc");
+            let contactc = document.getElementById("contactc");
+            let emailc = document.getElementById("emailc");
+            let telephonec = document.getElementById("telephonec");
+            let datcli = false;
+            if(cifc.value != "" && nomc.value != "" && dirc.value != "" && poblationc.value != "" && provincec.value != "" && cpostalc.value != "" && paysc.value != "" && contactc.value != "" && emailc.value != "" && telephonec.value != ""){
+                datcli = true;
+            }
+
+            return (datem == true && datcli == true);
+        }
+        function ajouterItem() {
+            let target1 = document.getElementById("champ1");
+            let target2 = document.getElementById("champ2");
+            let target3 = document.getElementById("champ3");
+            let target4 = document.getElementById("champ4");
+            let target5 = document.getElementById("champ5");
+            let target6 = document.getElementById("champ6");
+            let info = document.getElementById("info");
+
+            let concep = document.getElementById("concep");
+            let puni = document.getElementById("puni");
+            let uni = document.getElementById("uni");
+            let impb = document.getElementById("impb");
+            let iva = document.getElementById("iva");
+            let impt = document.getElementById("impt");
+
+            if (concep.value != "" && puni.value != "" && uni.value != "" && impb.value != "" && iva.value != "" && impt.value != ""){
+                let val1 = document.createElement('p');
+                let val2 = document.createElement('p');
+                let val3 = document.createElement('p');
+                let val4 = document.createElement('p');
+                let val5 = document.createElement('p');
+                let val6 = document.createElement('p');
+
+                val1.classList.add("ufoCatcher");
+                val2.classList.add("ufoCatcher");
+                val3.classList.add("ufoCatcher");
+                val4.classList.add("ufoCatcher");
+                val5.classList.add("ufoCatcher");
+                val6.classList.add("ufoCatcher");
+
+                info.innerText = info.value + " " + concep.value + " " + puni.value + " " + uni.value + " " + impb.value + " " + iva.value + " " + impt.value + " , ";
+                val1.innerText = concep.value;
+                val2.innerText = puni.value;
+                val3.innerText = uni.value;
+                val4.innerText = impb.value;
+                val5.innerText = iva.value;
+                val6.innerText = impt.value;
+
+                target1.after(val1);
+                target2.after(val2);
+                target3.after(val3);
+                target4.after(val4);
+                target5.after(val5);
+                target6.after(val6);
+            } else{
+                console.log("Erreur: Pas de valeur a ajouter!")
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Generador de Facturas Online</h1>
+    </header>
+    <form class="container-fluid" id="formulaire" action="/calculatteur" method="post" onsubmit="return check()">
+        <section id="emeteur">
+            <div class="row">
+                <h2 class="col-12">Datos del Emisor</h2>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>CIF:</label>
+                    <input type="text" id="cif" name="cif">
+                </div>
+                <div class="col-4">
+                    <label>Nombre:</label>
+                    <input type="text" id="nom" name="nom">
+                </div>
+                <div class="col-4">
+                    <label>Dirección:</label>
+                    <input type="text" id="dir" name="dir">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>Población:</label>
+                    <input type="text" id="poblation" name="poblation">
+                </div>
+                <div class="col-4">
+                    <label>Provincia:</label>
+                    <input type="text" id="province" name="province">
+                </div>
+                <div class="col-4">
+                    <label>Código Postal:</label>
+                    <input type="text" id="cpostal" name="cpostal">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>País:</label>
+                    <input type="text" id="pays" name="pays">
+                </div>
+                <div class="col-4">
+                    <label>Persona de Contacto:</label>
+                    <input type="text" id="contact" name="contact">
+                </div>
+                <div class="col-4">
+                    <label>Email:</label>
+                    <input type="text" id="email" name="email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-4 col-4">
+                    <label>Teléfono:</label>
+                    <input type="text" id="telephone" name="telephone">
+                </div>
+            </div>
+        </section>
+        <br>
+        <section id="client">
+            <div class="row">
+                <h2 class="col-12">Datos del Cliente</h2>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>CIF:</label>
+                    <input type="text" id="cifc" name="cifc">
+                </div>
+                <div class="col-4">
+                    <label>Nombre:</label>
+                    <input type="text" id="nomc" name="nomc">
+                </div>
+                <div class="col-4">
+                    <label>Dirección:</label>
+                    <input type="text" id="dirc" name="dirc">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>Población:</label>
+                    <input type="text" id="poblationc" name="poblationc">
+                </div>
+                <div class="col-4">
+                    <label>Provincia:</label>
+                    <input type="text" id="provincec" name="provincec">
+                </div>
+                <div class="col-4">
+                    <label>Código Postal:</label>
+                    <input type="text" id="cpostalc" name="cpostalc">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>País:</label>
+                    <input type="text" id="paysc" name="paysc">
+                </div>
+                <div class="col-4">
+                    <label>Persona de Contacto:</label>
+                    <input type="text" id="contactc" name="contactc">
+                </div>
+                <div class="col-4">
+                    <label>Email:</label>
+                    <input type="text" id="emailc" name="emailc">
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-4 col-4">
+                    <label>Teléfono:</label>
+                    <input type="text" id="telephonec" name="telephonec">
+                </div>
+            </div>
+        </section>
+        <br>
+        <section id="facture">
+            <div class="row">
+                <h2 class="col-12">Detalles de la Factura</h2>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    <label>Concepto:</label>
+                    <input type="text" id="concep" name="concep" size="50">
+                </div>
+                <div class="col-4">
+                    <label>Precio por unidad:</label>
+                    <input type="text" id="puni" name="puni">
+                </div>
+                <div class="col-3">
+                    <label>Unidades:</label>
+                    <input type="text" id="uni" name="uni">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label>Importe Bruto:</label>
+                    <input type="text" id="impb" name="impb">
+                </div>
+                <div class="col-3">
+                    <label>IVA:</label>
+                    <input type="text" id="iva" name="iva">
+                </div>
+                <div class="col-3">
+                    <label>Importe Total:</label>
+                    <input type="text" id="impt" name="impt">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2"><p id="champ1">Concepto</p></div>
+                <div class="col-2"><p id="champ2">Precio por unidad</p></div>
+                <div class="col-2"><p id="champ3">Unidades</p></div>
+                <div class="col-2"><p id="champ4">Importe Bruto</p></div>
+                <div class="col-2"><p id="champ5">IVA</p></div>
+                <div class="col-2"><p id="champ6">Importe Total</p></div>
+            </div>
+                <textarea style="display: none;" id="info" name="info"></textarea>
+            <br>
+        </section>
+        <br>
+        <div class="row">
+            <input class="offset-3 col-2 btn" type="button" value="Añadir Elemento" onclick="ajouterItem()">
+            <input class="offset-2 col-2 btn" type="submit" value="Enviar">
+        </div>
+        <br>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

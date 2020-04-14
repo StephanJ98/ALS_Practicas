@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Factura Generada</title>
+</head>
+<body style="text-align: center">
+    <header>
+        <h1>Factura Generada</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                <h3>Datos del Emisor:</h3>
+                <p>CIF: <i>{{cif}}</i></p>
+                <p>Nombre: <i>{{nom}}</i></p>
+                <p>Dirección: <i>{{dir}}</i></p>
+                <p>Poblacion: <i>{{poblation}}</i></p>
+                <p>Provincia: <i>{{province}}</i></p>
+                <p>Codigo Postal: <i>{{cpostal}}</i></p>
+                <p>Pais: <i>{{pays}}</i></p>
+                <p>Contacto: <i>{{contact}}</i></p>
+                <p>Email: <i>{{email}}</i></p>
+                <p>Telefono: <i>{{telephone}}</i></p>
+            </div>
+            <div class="col-4">
+                <h3>Datos del Cliente:</h3>
+                <p>CIF: <i>{{cifc}}</i></p>
+                <p>Nombre: <i>{{nomc}}</i></p>
+                <p>Dirección: <i>{{dirc}}</i></p>
+                <p>Poblacion: <i>{{poblationc}}</i></p>
+                <p>Provincia: <i>{{provincec}}</i></p>
+                <p>Codigo Postal: <i>{{cpostalc}}</i></p>
+                <p>Pais: <i>{{paysc}}</i></p>
+                <p>Contacto: <i>{{contactc}}</i></p>
+                <p>Email: <i>{{emailc}}</i></p>
+                <p>Telefono: <i>{{telephonec}}</i></p>
+            </div>
+            <div class="col-4">
+                <h3>Datos de la Factura:</h3>
+                <p> <i>{{info}}</i> </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
