@@ -36,9 +36,24 @@
             {% for data in datas %}
                 <div class="card col-lg-2 col-md-3 {{ data.tipo }}" style="margin: 30px;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ data.nombre }}</h5>
-                        <p class="card-text">{{ data.descripcion }}</p>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#id{{ data.identificateur }}"><strong>Ver Detalles</strong></button>
+                        <div class="row">
+                            <h5 class="card-title col-12">{{ data.nombre }}</h5>
+                        </div>
+                        <div class="row">
+                            <p class="card-text col-12">{{ data.descripcion }}</p>
+                        </div>
+                        <div class="row centreur">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#id{{ data.identificateur }}"><strong>Ver</strong></button>
+                            </div>
+                            <div class="col-6">
+                                <form action="/gusta" method="post">
+                                    <input style="display: none" type="text" id="jaime" name="jaime" value="{{ data.likes }}">
+                                    <input style="display: none" type="text" id="identifi" name="identifi" value="{{ data.identificateur }}">
+                                    <button type="submit" class="btn btn-primary"><strong>Me gusta</strong></button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Modal Ver Detalles-->
@@ -88,12 +103,12 @@
                                         <p class="col">{{ data.temperatura }}</p>
                                     </div>
                                     <div class="row">
-                                        <h6 class="col-3"><strong>Nombre</strong></h6>
-                                        <p class="col">{{ data.nombre }}</p>
-                                    </div>
-                                    <div class="row">
                                         <h6 class="col-3"><strong>Gramos por cada 30 cl</strong></h6>
                                         <p class="col">{{ data.gramos }}</p>
+                                    </div>
+                                    <div class="row">
+                                        <h6 class="col-3"><strong>Número de Likes</strong></h6>
+                                        <p class="col">{{ data.likes }} likes</p>
                                     </div>
                                 </div>
                             </div>
@@ -388,6 +403,7 @@
             <div class="modal-body">
                 <form role="form" id="ajout" method="post" action="/ajouter">
                     <input style="display: none" type="text" id="identificateur" name="identificateur" value="{{ datas.count() + 1 }}">
+                    <input style="display: none" type="text" id="likes" name="likes" value="0">
                     <div class="form-group">
                         <input type="text" class="form-control" id="nom" name="nom" placeholder="Nombre">
                     </div>

@@ -9,4 +9,4 @@ class The(ndb.Model):
     temperatura = ndb.StringProperty()
     gramos = ndb.StringProperty()
     identificateur = ndb.StringProperty()
-    # likes = ndb.IntegerProperty(indexed=True)
+    likes = ndb.StringProperty(indexed=True)
